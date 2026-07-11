@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "author": "Duel Disk Project",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-s3-devkitc-1",
+      "id": "esp",
+      "top": -144.18,
+      "left": 90.97,
+      "attrs": {}
+    },
+    { "type": "wokwi-ili9341", "id": "lcd1", "top": -124, "left": -240.3, "attrs": {} },
+    { "type": "wokwi-ky-040", "id": "encoder1", "top": 203.3, "left": -212, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnPhase",
+      "top": 303.8,
+      "left": -19.2,
+      "attrs": { "color": "blue", "label": "PHASE" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnTurn",
+      "top": 284.6,
+      "left": 259.2,
+      "attrs": { "color": "red", "label": "END TURN" }
+    },
+    {
+      "type": "wokwi-neopixel-strip",
+      "id": "strip1",
+      "top": 0,
+      "left": 0,
+      "attrs": { "pixels": "10" }
+    }
+  ],
+  "connections": [
+    [ "lcd1:VCC", "esp:3V3", "red", [] ],
+    [ "lcd1:GND", "esp:GND.1", "black", [] ],
+    [ "lcd1:SCK", "esp:12", "green", [] ],
+    [ "lcd1:MOSI", "esp:11", "blue", [] ],
+    [ "lcd1:MISO", "esp:13", "cyan", [] ],
+    [ "lcd1:CS", "esp:10", "orange", [] ],
+    [ "lcd1:D/C", "esp:9", "purple", [] ],
+    [ "lcd1:RST", "esp:8", "yellow", [] ],
+    [ "lcd1:LED", "esp:3V3", "red", [] ],
+    [ "encoder1:CLK", "esp:4", "green", [] ],
+    [ "encoder1:DT", "esp:5", "blue", [] ],
+    [ "encoder1:SW", "esp:6", "orange", [] ],
+    [ "encoder1:+", "esp:3V3", "red", [] ],
+    [ "encoder1:GND", "esp:GND.2", "black", [] ],
+    [ "btnPhase:1.l", "esp:7", "green", [] ],
+    [ "btnPhase:2.l", "esp:GND.2", "black", [] ],
+    [ "btnTurn:1.l", "esp:15", "orange", [] ],
+    [ "btnTurn:2.l", "esp:GND.2", "black", [] ],
+    [ "strip1:VCC", "esp:5V", "red", [] ],
+    [ "strip1:GND", "esp:GND.2", "black", [] ],
+    [ "strip1:DIN", "esp:16", "green", [] ]
+  ],
+  "dependencies": {}
+}
